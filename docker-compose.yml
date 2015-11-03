@@ -1,0 +1,25 @@
+# Interlock/HAProxy
+interlock:
+  image: ehazlett/interlock:latest
+  ports:
+    - "80:80"
+  volumes:
+    - /var/lib/docker:/etc/docker
+  command: "--swarm-url tcp://$DOCKER_HOST --debug --plugin haproxy start"
+  net: "dockchat"
+# DB
+db:
+  image: mongo
+  expose:
+    - 27017
+  command: --smallfiles
+  container_name: "db"
+  net: "dockchat"
+# Web
+web:
+  image: nicolaka/dockchat
+  environment:
+     - INTERLOCK_DATA={"hostname":"demo","domain":"interlock.com"}
+  ports:
+    - "5000"
+  net: "dockchat"
