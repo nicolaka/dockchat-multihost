@@ -59,7 +59,8 @@ CONTAINER ID        IMAGE                       COMMAND                  CREATED
 ```
 
 
-####Step 3: Ensure your laptop's DNS name can resolve demo.interlock.com to the public IP address of the instance that `dockchat-multihost_interlock_1` was deployed on. Ensure that that instance/vm can accept traffic on TCP port 80. 
+####Step 3: Ensure your laptop's DNS name can resolve demo.interlock.com.
+Create a new /etc/hosts  on your laptop entry and set it to the public IP address of the instance that `dockchat-multihost_interlock_1` was deployed on. Ensure that that instance/vm can accept traffic on TCP port 80. 
 
 ```
 vim /etc/hosts
