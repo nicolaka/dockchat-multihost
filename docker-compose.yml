@@ -19,7 +19,7 @@ db:
 web:
   image: nicolaka/dockchat
   environment:
-     - INTERLOCK_DATA={"hostname":"demo","domain":"interlock.com"}
+     - INTERLOCK_DATA={"hostname":"demo","domain":"dockchat.com"}
   ports:
     - "5000"
   net: "dockchat"
