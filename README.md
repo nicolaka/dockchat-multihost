@@ -1,6 +1,3 @@
-  GNU nano 2.2.6                                                                                             File: README.md
-
-
 #Dockchat + Interlock On Swarm with Multihost Networking
 
 This repo demonstrates Dockchat ( the simple Python+Mongo chat app) with the new multi-host networking. 
@@ -12,7 +9,7 @@ By using the new multi-host networking, you'll be able to scale your application
 
 #Requirements
 - Linux Kernel 3.16+
-- Docker Swarm Cluster configured with a k/v backend. Detailed example can be found here : <FIXME> 
+- Docker Swarm Cluster configured with a k/v backend. Detailed example can be found [here](https://github.com/docker/swarm/blob/master/docs/discovery.md#using-consul) 
 - Docker Compose >= 1.5
 
 
@@ -59,16 +56,16 @@ CONTAINER ID        IMAGE                       COMMAND                  CREATED
 ```
 
 
-####Step 3: Ensure your laptop's DNS name can resolve demo.interlock.com.
+####Step 3: Ensure your laptop's DNS name can resolve demo.dockchat.com.
 Create a new /etc/hosts  on your laptop entry and set it to the public IP address of the instance that `dockchat-multihost_interlock_1` was deployed on. Ensure that that instance/vm can accept traffic on TCP port 80. 
 
 ```
 vim /etc/hosts
 
-(+) <dockchat-multihost_interlock_1 IP>   demo.interlock.com
+(+) <dockchat-multihost_interlock_1 IP>   demo.dockchat.com
 ```
 
-####Step 4: Go to `demo.interlock.com` and check out the app :)
+####Step 4: Go to `demo.dockchat.com` and check out the app :)
 
 
 
@@ -80,5 +77,5 @@ docker-compose --x-networking scale web=8
 
 Using Docker Compose `scale` feature you can scale the web app **horizontally** across all the Swarm nodes!
 
-Note: you can also go to demo.interlock.com/haproxy?stats and check out active instances that are part of the HAProxy.
+Note: you can also go to demo.dockchat.com/haproxy?stats and check out active instances that are part of the HAProxy.
 
