@@ -3,8 +3,6 @@ interlock:
   image: ehazlett/interlock:latest
   ports:
     - "80:80"
-  volumes:
-    - /var/lib/docker:/etc/docker
   command: "--swarm-url tcp://$DOCKER_HOST --debug --plugin haproxy start"
   net: "dockchat"
 # DB
@@ -15,7 +13,7 @@ db:
   command: --smallfiles
   container_name: "db"
   net: "dockchat"
-# Web
+# Python
 web:
   image: nicolaka/dockchat
   environment:
